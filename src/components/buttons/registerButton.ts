@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'register-button',
-  template: `<button>Join in</button>`,
+  template: `<button (click)="buttonClicked()" type="submit">Sign up</button>`,
   styles: `button {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
@@ -15,5 +15,8 @@ import {Component} from '@angular/core';
   }`
 })
 export class RegisterButton {
-
+  evento = output();
+  buttonClicked() {
+     this.evento.emit()
+   }
 }

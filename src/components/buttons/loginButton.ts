@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'login-button',
-  template: `<button>Sign in</button>`,
+  template: `<button type="submit">Sign in</button>`,
   styles: `
     button {
       background-color: var(--md-sys-color-tertiary);

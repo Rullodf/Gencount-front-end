@@ -8,10 +8,10 @@ import {Observable, tap} from 'rxjs';
 export class UserService {
   constructor(private http: HttpClient) {
   }
-  baseUrl = 'http://localhost:8080/api/users';
+  authURL = 'http://localhost:8080/api/auth';
 
   register(user: User): Observable<User>{
-    return this.http.post<User>(this.baseUrl, user, {
+    return this.http.post<User>(this.authURL + '/register', user, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       },
@@ -19,7 +19,7 @@ export class UserService {
   }
 
   login(credentials: LoginCredentials) {
-    return this.http.post<{token: string}>(this.baseUrl + '/login', credentials)
+    return this.http.post<{token: string}>(this.authURL + '/login', credentials)
       .pipe(
         tap(res => {
           localStorage.setItem('token', res.token)

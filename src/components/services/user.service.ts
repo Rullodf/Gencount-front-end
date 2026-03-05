@@ -11,11 +11,7 @@ export class UserService {
   authURL = 'http://localhost:8080/api/auth';
 
   register(user: User): Observable<User>{
-    return this.http.post<User>(this.authURL + '/register', user, {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      },
-    })
+    return this.http.post<User>(this.authURL + '/register', user)
   }
 
   login(credentials: LoginCredentials) {
@@ -34,7 +30,7 @@ export class UserService {
 }
 
 export interface User {
-  id: number
+  userId: number
   name: string;
   surname: string;
   gender: string;

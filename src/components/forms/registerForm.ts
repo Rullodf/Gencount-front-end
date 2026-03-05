@@ -23,7 +23,7 @@ import {RegisterButton} from '../buttons/registerButton';
         </label>
       </div>
       <div>
-        <select [(ngModel)]="birthday" name="birthday">
+        <select [(ngModel)]="birthday" name="birthday" >
           @for (day of days; track day) {
             <option [value]="day">{{ day }}</option>
           }
@@ -39,7 +39,7 @@ import {RegisterButton} from '../buttons/registerButton';
           }
         </select>
       </div>
-      <register-button />
+      <register-button/>
     </form>
   `,
   styles: `
@@ -77,16 +77,19 @@ export class RegisterForm {
   }
 
   registerUser() {
-    this.userSevice.register({
-      id: 0,
+    let user = {
+      userId: 0,
       name: this.name,
       surname: this.surname,
       gender: this.gender,
       email: this.email,
       password: this.password,
       phone: this.phone,
-      dateOfBirth: this.birthday + '-' + this.birthmonth + '-' + this.birthyear
-    }).subscribe({
+      dateOfBirth: this.birthyear + '-'
+        + this.fixMonoChar(this.birthmonth) + '-' + this.fixMonoChar(this.birthday)
+    }
+    console.log(user);
+    this.userSevice.register(user).subscribe({
       next: () => {
         console.log('user registered')
       },
@@ -96,15 +99,19 @@ export class RegisterForm {
     })
   }
 
+  fixMonoChar(s: string){
+    if (s.length == 1){
+      return '0' + s
+    }
+    return s
+  }
 
-  updateDays(){
-    if(parseInt(this.birthmonth) == 2 && parseInt(this.birthyear) % 4 == 0){
+  updateDays() {
+    if (parseInt(this.birthmonth) == 2 && parseInt(this.birthyear) % 4 == 0) {
 
       this.days = Array.from({length: 29}, (_, i) => i + 1);
       return
     }
     this.days = Array.from({length: this.daysInMonth[parseInt(this.birthmonth) - 1]}, (_, i) => i + 1);
   }
-
-  protected readonly range = range;
 }

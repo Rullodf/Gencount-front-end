@@ -1,0 +1,23 @@
+<div class="page">
+  <div class="card">
+    <h2 class="title">Crea GenCount</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+      <label class="label">Nome</label>
+      <input class="input" type="text" formControlName="name" placeholder="Es. Viaggio a Cosenza" />
+
+      <label class="label">Descrizione</label>
+      <textarea class="input textarea" formControlName="description" placeholder="Es. spese weekend, cibo, benzina..."></textarea>
+
+      <button type="submit" class="btn primary">Crea GenCount</button>
+
+      <button type="button" class="btn secondary" (click)="toggleAddPeople()">
+        (opzionale) aggiungi ora qualcuno al gencount
+      </button>
+
+      <div *ngIf="showAddPeople" class="peopleBox">
+        <p class="muted">Qui poi mettiamo la lista amici ✅</p>
+      </div>
+    </form>
+  </div>
+</div>

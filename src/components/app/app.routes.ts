@@ -11,7 +11,7 @@ export const routes: Routes = [
   {path: '', component: Hero},
   {path: 'register-user', component: RegistrationScreen},
   {path: 'gencounts', component: GencountListComponent },
-  {path:'friends', component: UserList}
+  {path:'friends', component: UserList},
   {
     path: 'gencount/new',
     component: GencountCreateComponent

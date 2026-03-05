@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import {LucideAngularModule, CircleUserRound, UserRoundPlus}  from 'lucide-angular';
+import {LucideAngularModule, CircleUserRound, UserRoundPlus} from 'lucide-angular';
 
 type GencountCard = {
   id: number;
@@ -17,14 +17,18 @@ type GencountCard = {
     <div class="page">
       <header class="topbar">
         <div class="logo">
-            <img src="imgs/logo.png" alt="Logo del sito" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="imgs/logo.png" alt="Logo del sito" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="title">GENCOUNTS</div>
 
         <div class="top-icons">
           <button class="icon-btn" (click)="goCreate()" title="Crea gencount">+</button>
-          <button class="icon-btn" (click)="addFriend()" title="Friend">  <lucide-icon name="user-round-plus"> </lucide-icon></button>
-          <button class="icon-btn" (click)="goProfile()" title="Profile"> <lucide-icon name="circle-user-round"></lucide-icon></button>
+          <button class="icon-btn" (click)="goProfile()" title="Profile">
+            <lucide-icon [img]="UserRoundPlus" />
+          </button>
+          <button class="icon-btn" (click)="addFriend()" title="Friend">
+            <lucide-icon [img]="CircleUserRound" />
+          </button>
         </div>
       </header>
 
@@ -120,4 +124,7 @@ export class GencountListComponent {
     console.log('go profile');
     // TODO: this.router.navigate(['/gencount-goProfile']);
   }
+
+  protected readonly UserRoundPlus = UserRoundPlus;
+  protected readonly CircleUserRound = CircleUserRound;
 }

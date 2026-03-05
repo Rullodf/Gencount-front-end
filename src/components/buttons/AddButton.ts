@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
+import {User} from '../services/user.service';
 
 @Component({
   selector: 'add-button',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styles: ``,
   imports:[]
 })export class AddButton{
-
+  gencountId = input.required<number>();
+  users = input.required<User[]>();
 }

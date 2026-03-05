@@ -9,10 +9,10 @@ export class GencountService {
   constructor(private http: HttpClient) {}
   countBaseURL = 'http://localhost:8080/api/gencounts'; // /{id}/remove-user
   // /{id}/add-user
-  addUser(users: User[]) {
-    return this.http.post(this.countBaseURL + '/' + user.userId + '/add-user',users);
+  addUsers(users: User[], gencountId: number) {
+    return this.http.post(this.countBaseURL + '/' + gencountId + '/add-user',users);
   }
-  removeUser(users: User[]) {
-    return this.http.post(this.countBaseURL + '/' + user.userId + '/remove-user',users);
+  removeUsers(users: User[], gencountId: number) {
+    return this.http.post(this.countBaseURL + '/' + gencountId + '/remove-user',users);
   }
 }

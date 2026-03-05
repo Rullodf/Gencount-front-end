@@ -36,20 +36,24 @@ import {Router} from '@angular/router';
   styles: `
     #user-box {
       background-color: var(--md-sys-color-surface-container);
-      min-height: 100vh;
-      max-width: 600px;
+      height: 100vh;
+      min-width: 600px;
       width: 40%;
       margin: 0 0;
     }
 
     #presentation {
-      min-width: 60%;
       background-color: var(--md-sys-color-surface);
       margin: 0 0;
       position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-end;
+      justify-content: flex-end;
+      overflow: hidden;
+      flex: 1;
+      padding-top: 20px;
+      padding-bottom: 40px;
+      padding-right: max(50px, 10vw);
     }
 
     #login-screen {
@@ -73,6 +77,8 @@ import {Router} from '@angular/router';
     }
 
     #presentation-pic {
+      height: 55rem;
+      aspect-ratio: 1/1;
     }
 
     #catch-phrase {

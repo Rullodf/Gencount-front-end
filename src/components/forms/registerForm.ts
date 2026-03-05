@@ -3,6 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {UserService} from '../services/user.service';
 import {Observable, range} from 'rxjs';
 import {RegisterButton} from '../buttons/registerButton';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'register-form',
@@ -73,7 +74,7 @@ export class RegisterForm {
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ]
 
-  constructor(private userSevice: UserService) {
+  constructor(private userSevice: UserService, private Router router) {
   }
 
   registerUser() {
@@ -91,6 +92,7 @@ export class RegisterForm {
     console.log(user);
     this.userSevice.register(user).subscribe({
       next: () => {
+        this.router.navigate(['/gencounts'])
         console.log('user registered')
       },
       error: err => {

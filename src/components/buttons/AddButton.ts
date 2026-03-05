@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'add-button',
-  template: ``,
+  template: `<button>aggiungi</button>`,
   styles: ``,
   imports:[]
 })export class AddButton{

@@ -24,14 +24,16 @@ type GencountCard = {
       </header>
 
       <main class="list">
-        <button class="card" *ngFor="let g of gencounts" (click)="open(g.id)">
-          <div class="card-center">
-            <div class="card-title">Nome gencount: {{ g.name }}</div>
-            <div class="card-sub">Soldi totali spesi al momento: {{ g.totalSpent | number:'1.2-2' }} €</div>
-          </div>
+        @for (g of gencounts; track $index) {
+          <button class="card" (click)="open(g.id)">
+            <div class="card-center">
+              <div class="card-title">Nome gencount: {{ g.name }}</div>
+              <div class="card-sub">Soldi totali spesi al momento: {{ g.totalSpent | number:'1.2-2' }} €</div>
+            </div>
 
-          <div class="card-plus">+</div>
-        </button>
+            <div class="card-plus">+</div>
+          </button>
+        }
       </main>
     </div>
   `,

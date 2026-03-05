@@ -74,7 +74,7 @@ export class RegisterForm {
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ]
 
-  constructor(private userSevice: UserService, private Router router) {
+  constructor(private userSevice: UserService, private router: Router) {
   }
 
   registerUser() {

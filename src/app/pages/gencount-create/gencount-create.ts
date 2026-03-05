@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {LucideAngularModule} from 'lucide-angular';
+import {GencountService} from '../../../components/services/gencount.service';
+import {UserList} from '../../../components/forms/findUser';
 
 @Component({
   selector: 'app-gencount-create',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, LucideAngularModule, UserList],
   templateUrl: './gencount-create.html',
   styleUrls: ['./gencount-create.css'],
 })
 export class GencountCreateComponent {
   form: any;
+  showAddPeople = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private gencountService: GencountService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       description: [''],
@@ -20,8 +24,8 @@ export class GencountCreateComponent {
 
   submit() {
     console.log(this.form.value);
+    this.gencountService.createGencount(this.form.value).subscribe({})
   }
-  showAddPeople = false;
 
   toggleAddPeople() {
     this.showAddPeople = !this.showAddPeople;

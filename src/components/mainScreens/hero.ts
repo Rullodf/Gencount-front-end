@@ -104,6 +104,7 @@ export class Hero {
     console.log(credentials)
     this.userService.login(credentials).subscribe({
         next: () => {
+          this.router.navigate(['/gencounts']);
           console.log('logged in')
         },
         error: err => {

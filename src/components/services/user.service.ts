@@ -27,9 +27,11 @@ export class UserService {
   }
 
   login(credentials: LoginCredentials) {
-    return this.http.post<{ token: string }>(this.authURL + '/login', credentials).pipe(
+    return this.http.post<{ token: string; user: User }>(this.authURL + '/login', credentials).pipe(
       tap((res) => {
         localStorage.setItem('token', res.token);
+        localStorage.setItem('user', JSON.stringify(res.user));
+        console.log(res);
       }),
     );
   }
@@ -37,7 +39,13 @@ export class UserService {
   getToken() {
     return localStorage.getItem('token');
   }
-  getFriends(){
-    return this.http.get<User[]>(this.baseURL + '/friends')
+  getFriends(): Observable<User[]> {
+    const stored = localStorage.getItem('user');
+    if (!stored) throw new Error('Nessun user in localStorage');
+
+    const u1 = JSON.parse(stored) as User;
+
+    // usa il campo giusto: molto spesso è u1.id
+    return this.http.get<User[]>(`${this.baseURL}/${u1.userId}/friends`);
   }
 }

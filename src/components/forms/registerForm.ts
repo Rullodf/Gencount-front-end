@@ -92,7 +92,7 @@ export class RegisterForm {
     console.log(user);
     this.userSevice.register(user).subscribe({
       next: () => {
-        this.router.navigate(['/gencounts'])
+        this.router.navigate([''])
         console.log('user registered')
       },
       error: err => {

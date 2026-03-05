@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import {LucideAngularModule, CircleUserRound, UserRoundPlus}  from 'lucide-angular';
 
 type GencountCard = {
   id: number;
@@ -11,15 +12,19 @@ type GencountCard = {
 @Component({
   selector: 'app-gencount-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   template: `
     <div class="page">
       <header class="topbar">
-        <div class="logo"></div>
+        <div class="logo">
+            <img src="imgs/logo.png" alt="Logo del sito" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div class="title">GENCOUNTS</div>
 
         <div class="top-icons">
           <button class="icon-btn" (click)="goCreate()" title="Crea gencount">+</button>
+          <button class="icon-btn" (click)="addFriend()" title="Friend">  <lucide-icon name="user-round-plus"> </lucide-icon></button>
+          <button class="icon-btn" (click)="goProfile()" title="Profile"> <lucide-icon name="circle-user-round"></lucide-icon></button>
         </div>
       </header>
 
@@ -49,13 +54,13 @@ type GencountCard = {
       gap: 18px;
       color: #fff;
     }
-    .logo { width: 60px; height: 60px; border-radius: 50%; background: #fff; }
+    .logo { width: 100px; height: 60px; }
     .title { font-weight: 800; letter-spacing: 1px; }
     .top-icons { margin-left: auto; display: flex; gap: 10px; }
     .icon-btn {
       width: 46px; height: 46px;
       border-radius: 10px;
-      border: 2px solid rgba(0,0,0,.25);
+      border: none;
       background: transparent;
       color: #0b0b0b;
       font-size: 28px;
@@ -98,5 +103,15 @@ export class GencountListComponent {
   goCreate() {
     console.log('go create gencount');
     // TODO: this.router.navigate(['/gencount-create']);
+  }
+
+  protected addFriend() {
+    console.log('add friend');
+    //TODO: this.router.navigate(['/gencount-add-friend']);
+  }
+
+  protected goProfile() {
+    console.log('go profile');
+    // TODO: this.router.navigate(['/gencount-goProfile']);
   }
 }

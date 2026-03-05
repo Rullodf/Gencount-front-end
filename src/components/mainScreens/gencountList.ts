@@ -95,14 +95,20 @@ export class GencountListComponent {
 
   constructor(private router: Router) {}
 
-  open(id: number) {
+  /*open(id: number) {
     console.log('open gencount', id);
     // TODO: this.router.navigate(['/gencount', id]);
+  }*/
+  open(id: number) {
+    this.router.navigate(['/gencount', id]);
   }
 
-  goCreate() {
+  /*goCreate() {
     console.log('go create gencount');
-    // TODO: this.router.navigate(['/gencount-create']);
+    // TODO: this.router.navigate(['/gencount/new']);
+  }*/
+  goCreate() {
+    this.router.navigate(['/gencount/new']);
   }
 
   protected addFriend() {

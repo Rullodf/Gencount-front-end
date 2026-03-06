@@ -1,10 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {LoginCredentials, UserService} from '../services/user.service';
 import {ThemeService} from '../services/theme.service';
 import {LoginButton} from '../buttons/loginButton';
 import {RegisterButton} from '../buttons/registerButton';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
+import {LoginCredentials} from '../../interfaces';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'hero',

@@ -6,19 +6,23 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ThemeService {
   private isDarkMode = false;
-  private themeLink: HTMLLinkElement;
+  private body: HTMLElement;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
-    this.themeLink = this.document.createElement('link');
-    this.themeLink.rel = 'stylesheet';
-    this.document.querySelector("head>:nth-child(1)")?.before(this.themeLink);
-
+    this.body = this.document.body;
     this.loadTheme('light')
+    this.body.classList.add('medium-contrast');
   }
 
   loadTheme(theme: 'light' | 'dark') {
-    this.themeLink.href = `themes/${theme}.css`;
-    this.isDarkMode = (theme === 'dark') ;
+    if (theme === 'dark') {
+      this.body.classList.add('dark');
+      this.isDarkMode = true;
+    }
+    else {
+      this.body.classList.remove('dark');
+      this.isDarkMode = false;
+    }
   }
 
   toggleTheme() {

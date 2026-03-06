@@ -2,7 +2,8 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import {LucideAngularModule, CircleUserRound, UserRoundPlus} from 'lucide-angular';
-import { Gencount, GencountService } from '../services/gencount.service';
+import {Gencount} from '../../interfaces';
+import {GencountService} from '../services/gencount.service';
 
 type GencountCard = {
   id: number;
@@ -160,7 +161,11 @@ export class GencountListComponent {
     // TODO: this.router.navigate(['/gencount', id]);
   }*/
   open(id: number) {
-    this.router.navigate(['/gencount', id]);
+    this.router.navigate(['/gencount', id], {
+      state: {
+        gencount: this.gencounts().find(g => g.gencountId == id)
+      },
+    });
   }
 
   /*goCreate() {

@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {User} from './user.service';
-import {Observable} from 'rxjs';
+import {Gencount, User} from '../../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -13,18 +12,18 @@ export class GencountService {
   findAllURL = 'http://localhost:8080/api/gencounts?userId=';
 
   // /{id}/add-user
-  addUsers(users: User[], gencountId: number) {
+  addUsers(users: number[], gencountId: number) {
     return this.http.post(this.countBaseURL + '/' + gencountId + '/add-user', users);
   }
 
-  removeUsers(users: User[], gencountId: number) {
+  removeUsers(users: number[], gencountId: number) {
     return this.http.post(this.countBaseURL + '/' + gencountId + '/remove-user', users);
   }
 
   tempUser = JSON.parse(localStorage.getItem('user')!) as User;
 
   createGencount(pGencount: Partial<Gencount>) {
-    return this.http.post<Partial<Gencount>>(this.countBaseURL, {
+    return this.http.post<Gencount>(this.countBaseURL, {
       ownerId: this.tempUser.userId,
       gencountId: 0,
       name: pGencount.name,
@@ -39,11 +38,4 @@ export class GencountService {
   }
 }
 
-export interface Gencount {
-  name: string;
-  description: string;
-  gencountId: number;
-  category: string;
-  currency: string;
-  ownerId: number;
-}
+

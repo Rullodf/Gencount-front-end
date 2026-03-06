@@ -6,7 +6,6 @@ import {UserList} from '../../../components/forms/findUser';
 
 @Component({
   selector: 'app-gencount-create',
-  standalone: true,
   imports: [ReactiveFormsModule, LucideAngularModule, UserList],
   templateUrl: './gencount-create.html',
   styleUrls: ['./gencount-create.css'],

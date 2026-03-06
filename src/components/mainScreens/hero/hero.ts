@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginCredentials} from '../../../interfaces';
 import {UserService} from '../../services/user.service';
+import {LucideAngularModule, Sun} from 'lucide-angular';
 
 @Component({
   selector: 'hero',
@@ -13,7 +14,8 @@ import {UserService} from '../../services/user.service';
   imports: [
     LoginButton,
     RegisterButton,
-    FormsModule
+    FormsModule,
+    LucideAngularModule
   ],
   styleUrls: ["hero.css"]
 })
@@ -42,4 +44,6 @@ export class Hero {
   gotoRegisterScreen() {
     this.router.navigate(['/register-user'])
   }
+
+  protected readonly Sun = Sun;
 }

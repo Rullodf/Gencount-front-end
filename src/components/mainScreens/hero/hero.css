@@ -39,7 +39,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 50px;
-  font-size: 28px;
+  font-size: max(min(50px, calc(100vw/30)), 30px);
   font-weight: bold;
 }
 
@@ -65,9 +65,9 @@ form > * {
 
 input {
   width: 100%;
+  border: none;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
   font-size: 16px;
 }
 
@@ -87,4 +87,14 @@ input {
   border-style: solid;
   margin-top: 50px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.change-theme{
+  position:fixed;
+  top: 90px;
+  left:20px;
+}
+
+.password-forgotten{
+  color: var(--md-sys-color-on-surface-variant);
 }

@@ -2,7 +2,7 @@ import {Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'register-button',
-  template: `<button (click)="buttonClicked()" type="submit" class="outline">Sign up</button>`,
+  template: `<button (click)="buttonClicked()" type="submit" class="on-surface">Sign up</button>`,
   styles: `
     button {
       width: 100%;

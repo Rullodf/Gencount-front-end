@@ -10,7 +10,7 @@ export class ThemeService {
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.body = this.document.body;
-    this.loadTheme('light')
+    this.loadTheme('dark')
     this.body.classList.add('medium-contrast');
   }
 

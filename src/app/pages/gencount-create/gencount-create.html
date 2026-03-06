@@ -19,7 +19,7 @@
       <div class="peopleBoxWrapper" [class.open]="showAddPeople">
         <div class="peopleBox-sizer">
           <div class="peopleBox">
-            <find-user/>
+            <find-user (checkboxClicked)="addToAddingList($event)"/>
           </div>
         </div>
       </div>

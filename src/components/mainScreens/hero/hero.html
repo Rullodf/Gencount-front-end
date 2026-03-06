@@ -1,0 +1,19 @@
+<div class="login-screen">
+  <div class="presentation surface">
+    <img src="imgs/logo.png" class="logo" alt="Logo del sito">
+    <img src="imgs/presentation-pic.png" class="presentation-pic" alt="Foto di presentazione">
+  </div>
+  <div class="user-box surface-container">
+    <div class="catch-phrase on-surface">Un solo posto per gestire tutte le tue spese</div>
+    <div class="form-container">
+      <form #productForm="ngForm" (ngSubmit)=login()>
+          <input type="text" class="inputField" placeholder="Email" [(ngModel)]="email" name="email">
+          <input type="password" class="inputField" placeholder="Password" [(ngModel)]="password"
+                 name="password">
+          <login-button class="button"/>
+          <a href="">Forgot password?</a>
+      </form>
+      <register-button (evento)="gotoRegisterScreen()" class="button register outline"/>
+    </div>
+  </div>
+</div>

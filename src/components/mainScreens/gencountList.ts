@@ -163,7 +163,7 @@ export class GencountListComponent {
   open(id: number) {
     this.router.navigate(['/gencount', id], {
       state: {
-        gencount: this.gencounts().find(g => g.gencountId == id)
+        gencountId: this.gencounts().map(g=>g.gencountId).find(gId => gId == id)
       },
     });
   }

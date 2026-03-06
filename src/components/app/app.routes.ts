@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import {Hero} from '../mainScreens/hero';
+import {Hero} from '../mainScreens/hero/hero';
 import {RegistrationScreen} from '../mainScreens/registrationScreen';
 import { GencountListComponent } from '../mainScreens/gencountList';
 

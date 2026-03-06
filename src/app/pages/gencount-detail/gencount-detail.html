@@ -6,10 +6,10 @@
     </button>
 
     <div class="title">
-      {{name}}
+      {{ gencount()?.name }}
     </div>
     <div>
-      {{description}}
+      {{ gencount()?.description }}
     </div>
   </div>
 
@@ -25,7 +25,13 @@
         LISTA USERS IN QUESTO GENCOUNT
       </div>
 
-      <div class="users-box"></div>
+      <div class="users-box">
+        @for (user of users(); track user.userId) {
+          <div class="user-line">
+            <div>{{ user.name }} {{ user.surname }}</div>
+          </div>
+        }
+      </div>
     </div>
 
   </div>

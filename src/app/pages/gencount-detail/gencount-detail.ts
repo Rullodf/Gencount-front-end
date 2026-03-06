@@ -1,7 +1,8 @@
-import {Component, input} from '@angular/core';
+import {Component, inject, input, signal} from '@angular/core';
 import { Router } from '@angular/router';
 import {LucideAngularModule, Undo2} from 'lucide-angular';
-import {Gencount} from '../../../interfaces';
+import {Gencount, User} from '../../../interfaces';
+import {GencountService} from '../../../components/services/gencount.service';
 @Component({
   selector: 'app-gencount-detail',
   imports: [LucideAngularModule],
@@ -9,15 +10,24 @@ import {Gencount} from '../../../interfaces';
   styleUrl: './gencount-detail.css',
 })
 export class GencountDetailComponent {
-  name:string = '';
-  description:string = '';
-  gencount:Gencount ;
+  gencountService = inject(GencountService);
+  gencount = signal<Gencount|null>(null);
+  users=signal<User[]|null>(null)
   // gencount = input.required<Gencount>();
   constructor(private router: Router) {
-    // this.name = this.gencount().name;
-    // this.description = this.gencount().description;
-    this.gencount = router.currentNavigation()?.extras.state as Gencount;
-    console.log(this.gencount);
+    let gencountId = router.currentNavigation()?.extras.state?.['gencountId'] as number;
+    this.gencountService.getGencountById(gencountId).subscribe({
+      next: (gencount) => {
+        this.gencount.set(gencount);
+        this.gencountService.getUsers(gencountId).subscribe({
+          next: (users) => {
+            this.users.set(users)
+          }
+        })
+        //TODO: raccolta lista spese
+      }
+    })
+    console.log(gencountId);
   }
 
   back() {

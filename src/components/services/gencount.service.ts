@@ -36,6 +36,14 @@ export class GencountService {
   showGencounts() {
     return this.http.get<Gencount[]>(`${this.findAllURL}${this.tempUser.userId}`);
   }
+
+  getGencountById(id: number) {
+    return this.http.get<Gencount>(`${this.countBaseURL}/${id}`);
+  }
+
+  getUsers(gencountId: number) {
+    return this.http.get<User[]>(`${this.countBaseURL}/${gencountId}/users`);
+  }
 }
 
 

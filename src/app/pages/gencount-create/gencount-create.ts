@@ -13,6 +13,7 @@ import {UserList} from '../../../components/forms/findUser';
 export class GencountCreateComponent {
   form: any;
   showAddPeople = false;
+  addingList: number[] = [];
 
   constructor(private fb: FormBuilder, private gencountService: GencountService) {
     this.form = this.fb.group({
@@ -28,5 +29,15 @@ export class GencountCreateComponent {
 
   toggleAddPeople() {
     this.showAddPeople = !this.showAddPeople;
+  }
+
+  addToAddingList(event: HTMLInputElement) {
+    if (event.checked) {
+      this.addingList.push(parseInt(event.value))
+    }
+    else{
+      this.addingList = this.addingList.filter(e => e != parseInt(event.value))
+    }
+    console.log(this.addingList);
   }
 }

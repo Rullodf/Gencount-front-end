@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import {Component, input, output, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User, UserService } from '../services/user.service';
 import {FormsModule} from '@angular/forms';
@@ -12,12 +12,12 @@ import {use} from 'chai';
       <form #form="ngForm" class="form" (ngSubmit)="handleSubmit()">
         <div class="friend-list">
           @for (user of friends(); track $index) {
-            <label [for]="user.userId" class="friend-container">
+            <label [for]="user.userId" class="friend-container"  (change)="sendOut($event)">
               <div class="info">
                 {{ user.name }}
                 {{ user.surname }}
               </div>
-              <input type="checkbox" [id]="user.userId" class="checkbox"/>
+              <input type="checkbox" [id]="user.userId" [value]="user.userId" class="checkbox"/>
               <span class="quadratino"></span>
             </label>
           }
@@ -38,6 +38,8 @@ import {use} from 'chai';
 })
 export class UserList {
   friends = signal<User[]>([]);
+  checkboxClicked = output<HTMLInputElement>();
+
   constructor(private userService: UserService, private gencountService: GencountService) {
     this.userService.getFriends().subscribe({
       next: (data) => {
@@ -62,6 +64,10 @@ export class UserList {
     else {
       this.gencountService.removeUsers(this.friends(), this.gencountId()).subscribe({})
     }
+  }
+
+  sendOut(event: Event) {
+    this.checkboxClicked.emit(event.target! as HTMLInputElement)
   }
 
   protected readonly use = use;

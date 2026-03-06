@@ -3,55 +3,37 @@ import { CommonModule } from '@angular/common';
 import { User, UserService } from '../services/user.service';
 import {FormsModule} from '@angular/forms';
 import {GencountService} from '../services/gencount.service';
+import {use} from 'chai';
 
 @Component({
   selector: 'find-user',
   template: `
     <div>
       <form #form="ngForm" class="form" (ngSubmit)="handleSubmit()">
-        @for (user of friends(); track $index) {
-          <div class="friend-container">
-            <label class="info" [for]="user.userId">
-              {{ user.name }}
-              {{ user.surname }}
+        <div class="friend-list">
+          @for (user of friends(); track $index) {
+            <label [for]="user.userId" class="friend-container">
+              <div class="info">
+                {{ user.name }}
+                {{ user.surname }}
+              </div>
+              <input type="checkbox" [id]="user.userId" class="checkbox"/>
+              <span class="quadratino"></span>
             </label>
-            <input type="checkbox" [id]="user.userId" class="checkbox"/>
-          </div>
-        }
-        <button id="seleziona" type="submit">
-          @if (isAdding()) {
-            aggiungi
-          } @else {
-            rimuovi
           }
-        </button>
+        </div>
+        @if (isAdding() != null) {
+          <button id="seleziona" type="submit">
+            @if (isAdding()) {
+              aggiungi
+            } @else {
+              rimuovi
+            }
+          </button>
+        }
       </form>
     </div>`,
-  styles: `
-    .form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .friend-container {
-      display: grid;
-      height: 45px;
-      border-radius: 10px;
-      grid-template-columns: 1fr 60px;
-    }
-
-    .friend-container:hover {
-      background-color: grey;
-    }
-
-    .info {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      font-size: 1.3rem;
-      padding-left: 10px;
-    }
-  `,
+  styleUrls: ['findUser.css'],
   imports: [CommonModule, FormsModule],
 })
 export class UserList {
@@ -70,7 +52,7 @@ export class UserList {
     });
   }
   //TODO: metterli required dopo
-  isAdding = input(false);
+  isAdding = input<boolean|null>(null);
   gencountId = input(0);
 
   handleSubmit(){
@@ -81,4 +63,6 @@ export class UserList {
       this.gencountService.removeUsers(this.friends(), this.gencountId()).subscribe({})
     }
   }
+
+  protected readonly use = use;
 }

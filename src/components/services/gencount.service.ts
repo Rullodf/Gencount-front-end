@@ -7,10 +7,10 @@ import {Observable} from 'rxjs';
   providedIn: 'root',
 })
 export class GencountService {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   countBaseURL = 'http://localhost:8080/api/gencounts'; // /{id}/remove-user
+  findAllURL = 'http://localhost:8080/api/gencounts?userId=';
 
   // /{id}/add-user
   addUsers(users: User[], gencountId: number) {
@@ -21,17 +21,21 @@ export class GencountService {
     return this.http.post(this.countBaseURL + '/' + gencountId + '/remove-user', users);
   }
 
+  tempUser = JSON.parse(localStorage.getItem('user')!) as User;
+
   createGencount(pGencount: Partial<Gencount>) {
-    let tempUser = JSON.parse(localStorage.getItem('user')!) as User;
-    console.log(tempUser);
     return this.http.post<Partial<Gencount>>(this.countBaseURL, {
-      ownerId: tempUser.userId,
+      ownerId: this.tempUser.userId,
       gencountId: 0,
       name: pGencount.name,
       description: pGencount.description,
-      category: "test",
-      currency: "test",
+      category: 'test',
+      currency: 'test',
     });
+  }
+
+  showGencounts() {
+    return this.http.get<Gencount[]>(`${this.findAllURL}${this.tempUser.userId}`);
   }
 }
 

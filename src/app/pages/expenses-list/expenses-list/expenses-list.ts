@@ -1,5 +1,5 @@
 import {Component, inject, input, signal} from '@angular/core';
-import {expense} from '../../../../interfaces';
+import {Expense} from '../../../../interfaces';
 import {ExpensesService} from '../../../services/expenses.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {ExpensesService} from '../../../services/expenses.service';
 })
 export class ExpensesList {
   expensesService = inject(ExpensesService);
-  expenses = signal<expense[]|null>(null);
+  expenses = signal<Expense[]|null>(null);
   gencountId=input.required<number>();
 
   constructor() {

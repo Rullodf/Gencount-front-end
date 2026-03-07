@@ -23,7 +23,7 @@ export interface Gencount {
   ownerId: number;
 }
 
-export interface expense {
+export interface Expense {
   expenseId: number;
   gencountId: number;
   creditor: number;

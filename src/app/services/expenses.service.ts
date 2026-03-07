@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {gencountURL} from '../REST-Urls';
 import {Observable} from 'rxjs';
-import {expense} from '../../interfaces';
+import {Expense} from '../../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,9 @@ import {expense} from '../../interfaces';
 export class ExpensesService {
   http = inject(HttpClient);
   getExpensesByGencountId(gencountId: number){
-    return this.http.get<expense[]>(gencountURL + `/${gencountId}/expenses`);
+    return this.http.get<Expense[]>(gencountURL + `/${gencountId}/expenses`);
+  }
+  createExpense(expense : Expense){
+    return this.http.post<Expense>(gencountURL + `/${expense.gencountId}/expenses`, expense);
   }
 }

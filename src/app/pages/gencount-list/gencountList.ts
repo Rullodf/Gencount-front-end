@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {LucideAngularModule, CircleUserRound, UserRoundPlus, Plus, Trash2} from 'lucide-angular';
 import {Gencount} from '../../../interfaces';
-import {GencountService} from '../../../components/services/gencount.service';
-import {ThemeService} from '../../../components/services/theme.service';
+import {GencountService} from '../../services/gencount.service';
+import {ThemeService} from '../../services/theme.service';
 
 type GencountCard = {
   id: number;

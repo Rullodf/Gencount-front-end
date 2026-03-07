@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {LucideAngularModule} from 'lucide-angular';
-import {GencountService} from '../../../components/services/gencount.service';
-import {UserList} from '../../../components/forms/findUser';
+import {GencountService} from '../../services/gencount.service';
+import {UserList} from '../../components/forms/findUser';
 import {Router} from '@angular/router';
 
 @Component({

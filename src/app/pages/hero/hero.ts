@@ -1,11 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {ThemeService} from '../../../components/services/theme.service';
-import {LoginButton} from '../../../components/buttons/loginButton';
-import {RegisterButton} from '../../../components/buttons/registerButton';
+import {ThemeService} from '../../services/theme.service';
+import {LoginButton} from '../../components/buttons/loginButton';
+import {RegisterButton} from '../../components/buttons/registerButton';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginCredentials} from '../../../interfaces';
-import {UserService} from '../../../components/services/user.service';
+import {UserService} from '../../services/user.service';
 import {LucideAngularModule, Sun} from 'lucide-angular';
 
 @Component({

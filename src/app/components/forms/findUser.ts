@@ -1,10 +1,10 @@
 import {Component, input, output, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UserService} from '../services/user.service';
+import {UserService} from '../../services/user.service';
 import {FormsModule} from '@angular/forms';
-import {GencountService} from '../services/gencount.service';
+import {GencountService} from '../../services/gencount.service';
 import {use} from 'chai';
-import {User} from '../../interfaces';
+import {User} from '../../../interfaces';
 
 @Component({
   selector: 'find-user',

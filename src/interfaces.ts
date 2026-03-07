@@ -22,3 +22,12 @@ export interface Gencount {
   currency: string;
   ownerId: number;
 }
+
+export interface expense {
+  expenseId: number;
+  gencountId: number;
+  creditor: number;
+  title: string;
+  price: number;
+  description: string;
+}

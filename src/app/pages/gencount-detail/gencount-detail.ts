@@ -2,7 +2,7 @@ import {Component, inject, input, signal} from '@angular/core';
 import { Router } from '@angular/router';
 import {LucideAngularModule, Undo2} from 'lucide-angular';
 import {Gencount, User} from '../../../interfaces';
-import {GencountService} from '../../../components/services/gencount.service';
+import {GencountService} from '../../services/gencount.service';
 @Component({
   selector: 'app-gencount-detail',
   imports: [LucideAngularModule],

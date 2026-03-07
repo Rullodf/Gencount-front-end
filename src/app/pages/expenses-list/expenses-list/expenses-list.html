@@ -1,0 +1,10 @@
+<div class="main-container">
+  @for (expense of expenses(); track expense.expenseId) {
+    <div class="expense-card">
+      {{expense.title}}
+      {{expense.description}}
+      {{expense.price}}
+      {{expense.creditor}}
+    </div>
+  }
+</div>

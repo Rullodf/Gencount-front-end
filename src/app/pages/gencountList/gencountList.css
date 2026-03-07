@@ -1,0 +1,115 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--mat-sys-surface-container);
+}
+.topbar {
+  position: relative;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 18px;
+  background-color: var(--mat-sys-surface);
+}
+.logo {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.top-icons {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mat-sys-surface-dim);
+  color: var(--mat-sys-on-surface);
+  font-size: 28px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+.icon-btn *{
+position: absolute;
+}
+
+.icon-btn:hover {
+  background: var(--mat-sys-inverse-surface);
+  color: var(--mat-sys-inverse-on-surface);
+}
+
+
+.list {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 18px;
+}
+.card {
+  position: relative;
+  margin : 0 auto;
+  width: 100%;
+  border-radius: 16px;
+  padding: 22px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+  border: 1px solid var(--mat-sys-outline);
+  max-width: 800px;
+}
+.card.dark{
+  border:none;
+}
+
+.card-center {
+  text-align: center;
+  flex: 1;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--mat-sys-on-secondary-container)
+}
+.trash{
+  padding-top: 5px;
+  position: absolute;
+  border: none;
+  right: 20px;
+  border-radius: 50%;
+  display: flex;
+  background-color: var(--mat-sys-error)00;
+  transition: background-color 0.3s ease-out;
+  height: 36px;
+  width: 36px;
+}
+.trash:hover{
+  background-color: var(--mat-sys-error);
+}
+.trash-icon{
+  right: 6px;
+  top: 5px;
+  position: absolute;
+
+  color: var(--mat-sys-on-secondary-container);
+  transition: color 0.3s ease-out;
+}
+.trash:hover .trash-icon{
+  color: var(--mat-sys-on-error);
+}
+

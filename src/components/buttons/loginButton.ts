@@ -4,7 +4,7 @@ import {ThemeService} from '../services/theme.service';
 @Component({
   selector: 'login-button',
   template: `
-      <button type="submit" class="primary on-primary">Sign in</button>,
+      <button type="submit">Sign in</button>,
   `,
   styles: `
     button {
@@ -16,6 +16,8 @@ import {ThemeService} from '../services/theme.service';
       font-family: sans-serif;
       border: none;
       font-weight: bold;
+      background-color: var(--mat-sys-primary);
+      color: var(--mat-sys-on-primary)
     }
   `
 })

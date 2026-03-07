@@ -7,14 +7,14 @@
       <input class="input" type="text" formControlName="name" placeholder="Es. Viaggio a Cosenza"/>
 
       <label class="label">Descrizione</label>
-      <textarea class="input textarea" formControlName="description"
+      <textarea class="input textarea surface-variant on-surface" formControlName="description"
                 placeholder="Es. spese weekend, cibo, benzina...">
         </textarea>
 
       <!-- TODO: mettere la disattivazione dopo click-->
-      <button type="submit" class="btn primary" >Crea Gencount</button>
+      <button type="submit" class="btn create" >Crea Gencount</button>
 
-      <button type="button" class="btn secondary" [class.listActive]="showAddPeople" (click)="toggleAddPeople()">
+      <button type="button" class="btn open-list" [class.listActive]="showAddPeople" (click)="toggleAddPeople()">
         Aggiungi amici al Gencount
       </button>
       <div class="peopleBoxWrapper" [class.open]="showAddPeople">

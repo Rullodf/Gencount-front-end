@@ -12,6 +12,7 @@
 }
 
 .presentation {
+  background-color: var(--mat-sys-surface);
   flex: 1;
   overflow: hidden;
   display: flex;
@@ -26,6 +27,7 @@
 }
 
 .user-box {
+  background-color: var(--mat-sys-surface-container);
   width: 40%;
   height: 100vh;
   min-width: 200px;
@@ -69,6 +71,7 @@ input {
   padding: 12px 14px;
   border-radius: 10px;
   font-size: 16px;
+  background-color: var(--mat-sys-surface-bright);
 }
 
 .button {
@@ -82,6 +85,7 @@ input {
 }
 
 .register{
+  background-color: transparent;
   width:80%;
   border-width: 1px;
   border-style: solid;
@@ -96,5 +100,5 @@ input {
 }
 
 .password-forgotten{
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--mat-sys-on-surface-variant);
 }

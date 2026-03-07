@@ -10,10 +10,11 @@
   grid-template-columns: 1fr 60px;
   font-family: Arial, sans-serif;
   align-items: center;
+  position: relative;
 }
 
 .friend-container:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: color-mix(in srgb,var(--mat-sys-inverse-surface), transparent 86%);
 }
 
 .info {
@@ -22,11 +23,6 @@
   height: 100%;
   font-size: 1.2rem;
   padding-left: 10px;
-  color: #545454;
-}
-
-.info:hover {
-  color: #000000;
 }
 
 .friend-list {
@@ -51,15 +47,15 @@
 /* 3. DISEGNA il tuo quadratino personalizzato */
 
 .quadratino {
-   height: 24px;
+  height: 24px;
   width: 24px;
+  right: 15px;
   border-radius: 6px; /* Più lo alzi, più diventa tondo */
-  margin-right: 10px;
-  position: relative;
+  position: absolute;
+  background-color: var(--mat-sys-tertiary);
   opacity: 0;
   transition: opacity 0.3s ease-out;
-  background-color: #ff4081; /* Cambia questo colore come preferisci */
-  border-color: #ff4081;
+  border-color: var(--mat-sys-outline);
 }
 
 /* 5. Stile quando la checkbox è SELEZIONATA (Checked) */
@@ -90,9 +86,32 @@
   top: 4px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--mat-sys-on-tertiary);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
-  transition: opacity 0s 0.3s ;
+  transition: opacity 0s 0.3s;
+}
+
+/* 1. Definisci la larghezza della barra */
+::-webkit-scrollbar {
+  width: 8px;
+  scrollbar-gutter: stable;
+}
+
+/* 2. Personalizza lo sfondo */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* 3. Personalizza la maniglia */
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--mat-sys-secondary), transparent 30%);
+  border-radius: 10px;
+}
+
+/* 4. Effetto al passaggio del mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mat-sys-secondary);
 }
 

@@ -29,4 +29,8 @@ export class ThemeService {
     const newtheme = this.isDarkMode ? 'light' : 'dark';
     this.loadTheme(newtheme);
   }
+
+  isDark() : boolean {
+    return this.isDarkMode;
+  }
 }

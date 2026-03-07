@@ -1,0 +1,41 @@
+<div class="page surface">
+  <header class="topbar surface-container">
+    <div class="logo">
+      <img
+        src="imgs/logo.png"
+        alt="Logo del sito"
+        style="width: 100%; height: 100%; object-fit: contain;"
+      />
+    </div>
+    <div class="title on-surface">I MIEI GENCOUNTS</div>
+
+    <div class="top-icons">
+      <button class="icon-btn" (click)="goCreate()" title="Crea gencount">
+        <lucide-icon [img]="Plus" class="on-surface" style="left: 11px; top: 10px;"/>
+      </button>
+      <button class="icon-btn" (click)="goProfile()" title="Profile">
+        <lucide-icon [img]="UserRoundPlus" class="on-surface" style="left: 13px; top: 10px;"/>
+      </button>
+      <button class="icon-btn" (click)="addFriend()" title="Friend">
+        <lucide-icon [img]="CircleUserRound" class="on-surface" style="left: 11px; top: 10px;"/>
+      </button>
+    </div>
+  </header>
+
+  <main class="list">
+    @for (g of gencounts(); track g.gencountId) {
+      <div class="card" [class.dark]="theme.isDark()" (click)="open(g.gencountId)">
+        <div class="card-center">
+          <div class="card-title">{{ g.name }}</div>
+          <!--<div class="card-sub">
+            Soldi totali spesi al momento: {{ g.totalSpent | number: '1.2-2' }} €
+          </div>-->
+        </div>
+
+        <button class="trash" (click)="deleteGencount($event, g.gencountId)">
+          <lucide-icon [img]="Trash2" class="trash-icon"/>
+        </button>
+      </div>
+    }
+  </main>
+</div>

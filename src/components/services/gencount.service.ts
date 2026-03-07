@@ -44,6 +44,10 @@ export class GencountService {
   getUsers(gencountId: number) {
     return this.http.get<User[]>(`${this.countBaseURL}/${gencountId}/users`);
   }
+
+  deleteById(id: number) {
+    return this.http.delete(`${this.countBaseURL}/${id}`);
+  }
 }
 
 

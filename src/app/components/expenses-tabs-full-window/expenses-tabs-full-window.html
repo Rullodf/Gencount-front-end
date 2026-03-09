@@ -18,6 +18,11 @@
     </div>
     <div class="tab-content second">
       <div class="section-title">Lista debiti</div>
+      <div>
+        @if (gencount()) {
+          <app-debts-list [gencountId]="gencount()!.gencountId!"></app-debts-list>
+        }
+      </div>
     </div>
     <div class="tab-content third">
       <div class="section-title">Lista pagamenti</div>

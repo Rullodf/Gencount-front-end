@@ -33,3 +33,9 @@ export interface Expense {
   price: number;
   description: string;
 }
+
+export interface Debt{
+  payingUserId: number;
+  paidUserId: number;
+  amount: number;
+}

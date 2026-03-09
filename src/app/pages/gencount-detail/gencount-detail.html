@@ -1,27 +1,31 @@
 <div class="page">
 
-  <div class="header">
-    <button class="back" type="button" (click)="back()">
-      <lucide-icon [img]="Undo2"></lucide-icon>
-    </button>
-
-    <div class="title">
-      {{ gencount()?.name }}
+  <div class="topbar">
+    <div class="icon-btn">
+      <button type="button" (click)="back()">
+        <lucide-icon [img]="Undo2" style="top: 10px; left: 10px"></lucide-icon>
+      </button>
     </div>
-    <div>
-      {{ gencount()?.description }}
+
+    <div class="title-and-description">
+      <span class="title-span-above"></span>
+      <div class="title">
+        {{ gencount()?.name }}
+      </div>
+      <div class="description">
+        {{ gencount()?.description }}
+      </div>
     </div>
   </div>
 
   <div class="content">
-
-    <div class="left">
+    <div class="left sub-window" [class.dark]="themeService.isDark()">
       @if (gencount()) {
         <expenses-tabs-full-window [gencount]="gencount()!" [partecipants]="users()!"/>
       }
     </div>
 
-    <div class="right">
+    <div class="right sub-window">
       <div class="section-title">
         LISTA USERS IN QUESTO GENCOUNT
       </div>
@@ -34,7 +38,5 @@
         }
       </div>
     </div>
-
   </div>
-
 </div>

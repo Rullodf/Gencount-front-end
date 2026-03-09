@@ -5,6 +5,7 @@ import {Gencount, User} from '../../../interfaces';
 import {GencountService} from '../../services/gencount.service';
 import {ExpensesList} from '../expenses-list/expenses-list';
 import {ExpensesTabsFullWindow} from '../../components/expenses-tabs-full-window/expenses-tabs-full-window';
+import {ThemeService} from '../../services/theme.service';
 @Component({
   selector: 'app-gencount-detail',
   imports: [LucideAngularModule, ExpensesTabsFullWindow],
@@ -16,6 +17,7 @@ export class GencountDetailComponent {
   gencount = signal<Gencount|null>(null);
   users=signal<User[]|null>(null)
   activatedRoute = inject(ActivatedRoute)
+  themeService = inject(ThemeService);
   // gencount = input.required<Gencount>();
   constructor(private router: Router) {
     let gencountId = this.activatedRoute.snapshot.params['id'] as number;

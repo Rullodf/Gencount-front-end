@@ -3,6 +3,7 @@ import {ExpensesList} from '../../pages/expenses-list/expenses-list';
 import {Router} from '@angular/router';
 import {Gencount, User} from '../../../interfaces';
 import {LucideAngularModule, Plus} from 'lucide-angular';
+import {DebtsList} from '../../pages/debts-list/debts-list';
 
 @Component({
   selector: 'expenses-tabs-full-window',
@@ -10,6 +11,7 @@ import {LucideAngularModule, Plus} from 'lucide-angular';
   styleUrls: ['./expenses-tabs-full-window.css'],
   imports: [
     ExpensesList,
+    DebtsList,
     LucideAngularModule
   ],
 })

@@ -45,8 +45,10 @@ export class CreateExpense {
       this.isFormSubmitted = true;
       this.expensesService.createExpense(expense).subscribe({
         next: (expense) => {
-
-          this.router.navigate(['/gencount', this.gencountId], {state: {gencountId: this.gencountId}})
+          console.log(expense)
+          this.expensesService.putUsers(this.addingList, expense.expenseId).subscribe(
+            () => this.router.navigate(['/gencount', this.gencountId], {state: {gencountId: this.gencountId}})
+          )
         },
         error: (err) => {
           console.log(err)

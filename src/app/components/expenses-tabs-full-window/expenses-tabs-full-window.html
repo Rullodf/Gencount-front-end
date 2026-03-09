@@ -1,7 +1,10 @@
 <div class="container">
   <div class="tab-buttons-container">
+    <span class="selected-indicator" [style.left]="(this.activeTabIndex() * ((100/3)+1)) + '%'"></span>
     <button class="tab-button" (click)="setActiveTab(0)">SPESE</button>
+    <span class="separator"></span>
     <button class="tab-button" (click)="setActiveTab(1)">DEBITI</button>
+    <span class="separator"></span>
     <button class="tab-button" (click)="setActiveTab(2)">PAGAMENTI</button>
   </div>
   <div class="tab-content-container" [style.transform]="'translateX(' + (-this.activeTabIndex() * (100/3)) + '%)'">

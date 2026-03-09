@@ -7,7 +7,7 @@
       <input class="input" type="text" formControlName="name" placeholder="Es. Viaggio a Cosenza"/>
 
       <label class="label">Descrizione</label>
-      <textarea class="input textarea surface-variant on-surface" formControlName="description"
+      <textarea class="input textarea" formControlName="description"
                 placeholder="Es. spese weekend, cibo, benzina...">
         </textarea>
 
@@ -20,7 +20,7 @@
       <div class="peopleBoxWrapper" [class.open]="showAddPeople">
         <div class="peopleBox-sizer">
           <div class="peopleBox">
-            <find-user (checkboxClicked)="addToAddingList($event)" [listOfPeople]="friends()"/>
+            <user-list (checkboxClicked)="addToAddingList($event)" [listOfPeople]="friends()"/>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import {Component, inject, signal} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {LucideAngularModule} from 'lucide-angular';
 import {GencountService} from '../../services/gencount.service';
-import {UserList} from '../../components/forms/findUser/findUser';
+import {UserList} from '../../components/forms/user-list/user-list';
 import {Router} from '@angular/router';
 import {User} from '../../../interfaces';
 import {UserService} from '../../services/user.service';

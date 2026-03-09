@@ -7,11 +7,11 @@ import {use} from 'chai';
 import {User} from '../../../../interfaces';
 
 @Component({
-  selector: 'find-user',
+  selector: 'user-list',
   template: `
     <div>
       <form #form="ngForm" class="form" (ngSubmit)="handleSubmit()">
-        <div class="friend-list">
+        <div class="user-list">
           @for (user of listOfPeople(); track $index) {
             <label [for]="user.userId" class="friend-container">
               <div class="info">
@@ -35,7 +35,7 @@ import {User} from '../../../../interfaces';
         }
       </form>
     </div>`,
-  styleUrls: ['findUser.css'],
+  styleUrls: ['user-list.css'],
   imports: [CommonModule, FormsModule],
 })
 export class UserList {

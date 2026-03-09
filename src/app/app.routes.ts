@@ -4,7 +4,7 @@ import {RegistrationScreen} from './components/mainScreens/registrationScreen';
 import { GencountListComponent } from './pages/gencount-list/gencountList';
 
 
-import { UserList } from './components/forms/findUser/findUser';
+import { UserList } from './components/forms/user-list/user-list';
 import {GencountCreateComponent} from './pages/gencount-create/gencount-create';
 import {GencountDetailComponent} from './pages/gencount-detail/gencount-detail';
 import {CreateExpense} from './components/forms/create-expense/create-expense';

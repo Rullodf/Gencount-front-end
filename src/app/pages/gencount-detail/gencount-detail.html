@@ -17,7 +17,7 @@
 
     <div class="left">
       @if (gencount()) {
-        <expenses-tabs-full-window [gencount]="gencount()!"/>
+        <expenses-tabs-full-window [gencount]="gencount()!" [partecipants]="users()!"/>
       }
     </div>
 

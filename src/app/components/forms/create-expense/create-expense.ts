@@ -1,28 +1,34 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {ExpensesService} from '../../../services/expenses.service';
 import {Expense, User} from '../../../../interfaces';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {UserList} from '../user-list/user-list';
 
 @Component({
   selector: 'app-create-expense',
   imports: [
-    FormsModule
+    FormsModule,
+    UserList
   ],
   templateUrl: './create-expense.html',
   styleUrl: './create-expense.css',
 })
 export class CreateExpense {
   isFormSubmitted = false;
-  router = inject(Router);
+  partecipants: User[];
+  gencountId: number;
   creditor = JSON.parse(localStorage.getItem('user')!) as User
-  gencountId = this.router.currentNavigation()?.extras.state?.['gencountId'] as number
   title = '';
   price = '0';
   description = '';
-
-
   expensesService = inject(ExpensesService);
+  addingList: number[] = [];
+
+  constructor(private router: Router,) {
+    this.partecipants = router.currentNavigation()?.extras.state?.['partecipants'] as User[]
+    this.gencountId = this.router.currentNavigation()?.extras.state?.['gencountId'] as number
+  }
 
   submit() {
     let expense = {
@@ -39,6 +45,7 @@ export class CreateExpense {
       this.isFormSubmitted = true;
       this.expensesService.createExpense(expense).subscribe({
         next: (expense) => {
+
           this.router.navigate(['/gencount', this.gencountId], {state: {gencountId: this.gencountId}})
         },
         error: (err) => {
@@ -46,5 +53,14 @@ export class CreateExpense {
         }
       })
     }
+  }
+
+  addToAddingList(event: HTMLInputElement) {
+    if (event.checked) {
+      this.addingList.push(parseInt(event.value))
+    } else {
+      this.addingList = this.addingList.filter(e => e != parseInt(event.value))
+    }
+    console.log(this.addingList);
   }
 }

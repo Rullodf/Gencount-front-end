@@ -1,7 +1,7 @@
 import {Component, inject, input, signal} from '@angular/core';
 import {ExpensesList} from '../../pages/expenses-list/expenses-list';
 import {Router} from '@angular/router';
-import {Gencount} from '../../../interfaces';
+import {Gencount, User} from '../../../interfaces';
 import {LucideAngularModule, Plus} from 'lucide-angular';
 
 @Component({
@@ -17,9 +17,15 @@ export class ExpensesTabsFullWindow {
   router = inject(Router);
   gencount = input.required<Gencount>();
   activeTabIndex = signal(0);
+  partecipants = input.required<User[]>()
 
-  openExpenseCreation(){
-    this.router.navigate(['/expense-create'], {state: {gencountId: this.gencount().gencountId}})
+  openExpenseCreation() {
+    this.router.navigate(['/expense-create'], {
+      state: {
+        gencountId: this.gencount().gencountId,
+        partecipants: this.partecipants()
+      }
+    })
   }
 
   setActiveTab(index: number) {

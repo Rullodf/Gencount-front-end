@@ -25,7 +25,7 @@
   padding-left: 10px;
 }
 
-.friend-list {
+.user-list {
   max-height: 235px;
   overflow-y: auto;
 }

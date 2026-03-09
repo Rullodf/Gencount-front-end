@@ -1,19 +1,28 @@
-<form #expenseForm="ngForm" (ngSubmit)="submit()" class="form">
-  <div class="nome-e-prezzo">
-    <label class="label">Nome spesa</label>
+<div class="page">
+  <div class="card">
+    <form #expenseForm="ngForm" (ngSubmit)="submit()" class="form">
+      <div class="nome-e-prezzo">
+        <label class="label" for="title">Spesa</label>
 
+        <div class="nome-e-prezzo-input-container">
+          <input class="input title important" type="text" [(ngModel)]="title" id="title" name="title"
+                 placeholder="Es. Pizzette e dolci"/>
+          <div class="price">
+            <input class="input important" type="text" [(ngModel)]="price" name="price" placeholder="50"/>
+          </div>
+        </div>
+      </div>
 
-    <input class="input" type="text" [(ngModel)]="title" name="title" placeholder="Es. Viaggio a Cosenza"/>
-    <label class="label"></label>
-    <input class="input" type="text" [(ngModel)]="price" name="price" placeholder="50 €"/>
-  </div>
-
-  <label class="label">Descrizione</label>
-  <textarea name="description" [(ngModel)]="description"
-            placeholder="Es. spese weekend, cibo, benzina...">
+      <label class="label">Descrizione</label>
+      <textarea name="description" class="input textarea" [(ngModel)]="description"
+                placeholder="Es. 5 Pizzette margherita, 2 croissant e una torta">
         </textarea>
+      <div class="peopleBox">
+        <user-list [listOfPeople]="partecipants" (checkboxClicked)="addToAddingList($event)"/>
+      </div>
+      <!-- TODO: mettere la disattivazione dopo click-->
+      <button type="submit" class="btn create">Crea Gencount</button>
 
-  <!-- TODO: mettere la disattivazione dopo click-->
-  <button type="submit" class="btn create" >Crea Gencount</button>
-
-</form>
+    </form>
+  </div>
+</div>

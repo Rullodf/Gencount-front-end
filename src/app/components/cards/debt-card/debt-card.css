@@ -1,0 +1,51 @@
+.debt-card{
+  display: flex;
+  height: 70px;
+  white-space: nowrap;
+  background-color: var(--mat-sys-surface-container-highest);
+  border-radius: 20px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+.debt-card.dark{
+  box-shadow: none;
+}
+
+.debt-card:hover{
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+}
+
+.text{
+  width: 70%;
+}
+.amount{
+  width: 30%;
+  padding-right: 20px;
+  color: var(--mat-sys-tertiary);
+  font-weight: 800;
+  font-size: 30px;
+display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.amount.red{
+  color: var(--mat-sys-error);
+}
+
+.text{
+  width: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+}
+.action{
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.actor{
+  margin-top: 3px;
+  font-weight: 400;
+  font-size: 13px;
+}

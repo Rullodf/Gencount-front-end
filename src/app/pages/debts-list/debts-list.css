@@ -1,0 +1,35 @@
+.main-container{
+  padding: 20px;
+  margin-top: 16px;
+  color: var(--mat-sys-on-surface);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+
+/* 1. Definisci la larghezza della barra */
+::-webkit-scrollbar {
+  width: 8px;
+  scrollbar-gutter: stable;
+}
+
+/* 2. Personalizza lo sfondo */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* 3. Personalizza la maniglia */
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--mat-sys-secondary), transparent 30%);
+  border-radius: 10px;
+}
+
+/* 4. Effetto al passaggio del mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mat-sys-secondary);
+}
+

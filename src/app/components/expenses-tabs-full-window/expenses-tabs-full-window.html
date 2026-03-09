@@ -1,6 +1,8 @@
 <div class="container">
   <div class="tab-buttons-container">
-    <span class="selected-indicator" [style.left]="(this.activeTabIndex() * ((100/3)+1)) + '%'"></span>
+    <div class="selected-indicator-container"  [style.left]="(this.activeTabIndex() * ((100/3))) + '%'">
+      <div class="selected-indicator"></div>
+    </div>
     <button class="tab-button" (click)="setActiveTab(0)">SPESE</button>
     <span class="separator"></span>
     <button class="tab-button" (click)="setActiveTab(1)">DEBITI</button>
@@ -8,8 +10,7 @@
     <button class="tab-button" (click)="setActiveTab(2)">PAGAMENTI</button>
   </div>
   <div class="tab-content-container" [style.transform]="'translateX(' + (-this.activeTabIndex() * (100/3)) + '%)'">
-    <div class="tab-content first">
-      <div class="section-title">Lista spese</div>
+    <div class="tab-content ">
       <div class="spese-box">
         @if (gencount()) {
           <expenses-list [gencountId]="gencount()!.gencountId"/>
@@ -19,15 +20,14 @@
         }
       </div>
     </div>
-    <div class="tab-content second">
-      <div class="section-title">Lista debiti</div>
+    <div class="tab-content ">
       <div>
         @if (gencount()) {
-          <app-debts-list [gencountId]="gencount()!.gencountId!"></app-debts-list>
+          <app-debts-list [gencountId]="gencount()!.gencountId!" [users]="partecipants()"></app-debts-list>
         }
       </div>
     </div>
-    <div class="tab-content third">
+    <div class="tab-content ">
       <div class="section-title">Lista pagamenti</div>
     </div>
   </div>

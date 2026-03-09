@@ -12,12 +12,15 @@
   height: var(--tab-buttons-height);
   display:flex;
   background-color: var(--mat-sys-surface-container-lowest);
+  position:relative;
 }
 
 .tab-button{
   height: 100%;
   width: calc(100%/3);
   border:none;
+  z-index: 3;
+  background-color: transparent;
 }
 
 .tab-content-container{
@@ -25,10 +28,12 @@
   width:300%;
   display:flex;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: var(--mat-sys-surface-container-high);
 }
 
 .tab-content{
   position:relative;
+  padding-top:25px;
   height:100%;
   width:100%;
 }
@@ -52,12 +57,28 @@
   border: none
 }
 
-.selected-indicator{
+.selected-indicator-container{
+  z-index: 0;
+  width:calc(100%/3);
+  height:100%;
+  position:absolute;
+  padding:5px 8px;
+  transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
+.selected-indicator{
+  z-index: 1;
+  height:100%;
+  width:100%;
+  background-color: var(--mat-sys-secondary-container);
+  border-radius: 13px;
 }
 
 .separator{
+  z-index: 2;
   width:1px;
-  margin:none
+  margin:auto 0;
+  background-color: var(--mat-sys-outline-variant);
+  height:65%;
 }
 

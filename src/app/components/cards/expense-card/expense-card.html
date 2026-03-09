@@ -1,0 +1,7 @@
+<div class="expense-card" [class.dark]="themeService.isDark()">
+  <div class="titolo-e-nome">
+    <div class="titolo">{{expense().title}}</div>
+    <div class="nome">Pagato da <b>{{expense().creditorName}} {{expense().creditorSurname}}</b></div>
+  </div>
+  <div class="prezzo">{{expense().price}} €</div>
+</div>

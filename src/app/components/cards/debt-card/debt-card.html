@@ -1,0 +1,15 @@
+<div class="debt-card" [class.dark]="themeService.isDark()">
+  <div class="text">
+    <div class="action">
+      {{ isPayingUser() ? 'Devi pagare' : 'Devi ricevere' }}
+    </div>
+    <div class="actor">
+      @if (isPayingUser()) {
+        <b>{{ getOtherUser(debt().paidUserId).name }} {{ getOtherUser(debt().paidUserId).surname }}</b>
+      } @else {
+        da <b>{{ getOtherUser(debt().payingUserId).name }} {{ getOtherUser(debt().payingUserId).surname }}</b>
+      }
+    </div>
+  </div>
+  <div class="amount" [class.red]="isPayingUser()">{{ debt().amount.toFixed(2) }} €</div>
+</div>

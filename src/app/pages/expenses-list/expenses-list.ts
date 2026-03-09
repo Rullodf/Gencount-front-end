@@ -2,10 +2,11 @@ import {Component, inject, input, signal} from '@angular/core';
 import {Expense} from '../../../interfaces';
 import {ExpensesService} from '../../services/expenses.service';
 import {Router} from '@angular/router';
+import {ExpenseCard} from '../../components/cards/expense-card/expense-card';
 
 @Component({
   selector: 'expenses-list',
-  imports: [],
+  imports: [ExpenseCard],
   templateUrl: './expenses-list.html',
   styleUrl: './expenses-list.css',
 })
@@ -22,6 +23,5 @@ export class ExpensesList {
       }
     })
   }
-
 
 }

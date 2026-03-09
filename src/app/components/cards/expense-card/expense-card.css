@@ -1,0 +1,43 @@
+.expense-card{
+  background-color: var(--mat-sys-surface-container-highest);
+  border-radius: 20px;
+display: flex;
+  height: 70px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+.expense-card.dark{
+  box-shadow: none;
+}
+
+.expense-card:hover{
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+}
+
+.titolo-e-nome{
+  width: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+}
+.titolo{
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nome{
+  margin-top: 3px;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.prezzo{
+  font-weight: 800;
+  font-size: 30px;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+}

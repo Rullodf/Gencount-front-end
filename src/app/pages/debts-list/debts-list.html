@@ -1,7 +1,5 @@
-@for(debt of debts(); track $index){
-  <div class="debt-card">
-    {{debt.paidUserId}}
-    {{debt.amount}}
-    {{debt.payingUserId}}
-  </div>
-}
+<div class="main-container">
+  @for(debt of debts(); track $index){
+    <app-debt-card [debt]="debt" [users]="users()"/>
+  }
+</div>

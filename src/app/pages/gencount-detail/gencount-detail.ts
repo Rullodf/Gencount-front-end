@@ -6,9 +6,10 @@ import {GencountService} from '../../services/gencount.service';
 import {ExpensesList} from '../expenses-list/expenses-list';
 import {ExpensesTabsFullWindow} from '../../components/expenses-tabs-full-window/expenses-tabs-full-window';
 import {ThemeService} from '../../services/theme.service';
+import {MemberCard} from '../../components/cards/member-card/member-card';
 @Component({
   selector: 'app-gencount-detail',
-  imports: [LucideAngularModule, ExpensesTabsFullWindow],
+  imports: [LucideAngularModule, ExpensesTabsFullWindow, MemberCard],
   templateUrl: './gencount-detail.html',
   styleUrl: './gencount-detail.css',
 })
@@ -18,6 +19,8 @@ export class GencountDetailComponent {
   users=signal<User[]|null>(null)
   activatedRoute = inject(ActivatedRoute)
   themeService = inject(ThemeService);
+  firstMember = signal(true);
+
   // gencount = input.required<Gencount>();
   constructor(private router: Router) {
     let gencountId = this.activatedRoute.snapshot.params['id'] as number;
@@ -42,4 +45,13 @@ export class GencountDetailComponent {
 
   protected readonly Undo2 = Undo2;
   protected readonly parseInt = parseInt;
+
+  isFirstMember() {
+    if (this.firstMember()) {
+      this.firstMember.set(false)
+      return true
+    }
+    return false
+  }
+
 }

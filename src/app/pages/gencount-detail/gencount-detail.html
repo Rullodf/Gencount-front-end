@@ -25,15 +25,19 @@
       }
     </div>
 
-    <div class="right sub-window">
+    <div class="right sub-window" [class.dark]="themeService.isDark()">
       <div class="section-title">
-        LISTA USERS IN QUESTO GENCOUNT
+        PARTECIPANTI
       </div>
 
       <div class="users-box">
-        @for (user of users(); track user.userId) {
+        @for (user of users(); track $index) {
+          @if ($index != 0) {
+            <div class="member-separator">
+            </div>
+          }
           <div class="user-line">
-            <div>{{ user.name }} {{ user.surname }}</div>
+            <app-member-card [member]="user"/>
           </div>
         }
       </div>

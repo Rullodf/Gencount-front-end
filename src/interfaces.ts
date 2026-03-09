@@ -26,7 +26,9 @@ export interface Gencount {
 export interface Expense {
   expenseId: number;
   gencountId: number;
-  creditor: number;
+  creditorId: number;
+  creditorName: string;
+  creditorSurname: string;
   title: string;
   price: number;
   description: string;

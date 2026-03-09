@@ -16,8 +16,9 @@
   <div class="content">
 
     <div class="left">
-      <div class="section-title">Lista spese</div>
-      <div class="spese-box"></div>
+      @if (gencount()) {
+        <expenses-tabs-full-window [gencount]="gencount()!"/>
+      }
     </div>
 
     <div class="right">

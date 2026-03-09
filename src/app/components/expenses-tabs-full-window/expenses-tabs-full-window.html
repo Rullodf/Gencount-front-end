@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="tab-buttons-container">
+    <button class="tab-button" (click)="setActiveTab(0)">SPESE</button>
+    <button class="tab-button" (click)="setActiveTab(1)">DEBITI</button>
+    <button class="tab-button" (click)="setActiveTab(2)">PAGAMENTI</button>
+  </div>
+  <div class="tab-content-container" [style.transform]="'translateX(' + (-this.activeTabIndex() * (100/3)) + '%)'">
+    <div class="tab-content first">
+      <div class="section-title">Lista spese</div>
+      <div class="spese-box">
+        @if (gencount()) {
+          <expenses-list [gencountId]="gencount()!.gencountId"/>
+          <button class="create-expense-button" (click)="openExpenseCreation()">
+            <lucide-icon [img]="Plus" />
+          </button>
+        }
+      </div>
+    </div>
+    <div class="tab-content second">
+      <div class="section-title">Lista debiti</div>
+    </div>
+    <div class="tab-content third">
+      <div class="section-title">Lista pagamenti</div>
+    </div>
+  </div>
+</div>

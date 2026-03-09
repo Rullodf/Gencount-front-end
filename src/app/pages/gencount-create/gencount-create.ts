@@ -1,9 +1,11 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {LucideAngularModule} from 'lucide-angular';
 import {GencountService} from '../../services/gencount.service';
-import {UserList} from '../../components/forms/findUser';
+import {UserList} from '../../components/forms/findUser/findUser';
 import {Router} from '@angular/router';
+import {User} from '../../../interfaces';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-gencount-create',
@@ -12,16 +14,29 @@ import {Router} from '@angular/router';
   styleUrls: ['./gencount-create.css'],
 })
 export class GencountCreateComponent {
+  friends = signal<User[]>([]);
   form: any;
   showAddPeople = false;
   r = inject(Router);
   addingList: number[] = [];
   isFormAlreadySubmitted = false;
 
-  constructor(private fb: FormBuilder, private gencountService: GencountService) {
+  constructor(private fb: FormBuilder, private gencountService: GencountService, private userService: UserService,) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       description: [''],
+    });
+    this.userService.getFriends().subscribe({
+      next: (data) => {
+        this.friends.set(data.sort((a, b) => a.surname.toLowerCase().localeCompare(b.surname.toLowerCase()))
+          .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
+        setTimeout(() => {
+          console.log(this.friends);
+        }, 8000);
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 

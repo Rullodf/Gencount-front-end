@@ -1,11 +1,13 @@
 import {Component, inject, input, signal} from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LucideAngularModule, Undo2} from 'lucide-angular';
 import {Gencount, User} from '../../../interfaces';
 import {GencountService} from '../../services/gencount.service';
+import {ExpensesList} from '../expenses-list/expenses-list';
+import {ExpensesTabsFullWindow} from '../../components/expenses-tabs-full-window/expenses-tabs-full-window';
 @Component({
   selector: 'app-gencount-detail',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, ExpensesTabsFullWindow],
   templateUrl: './gencount-detail.html',
   styleUrl: './gencount-detail.css',
 })
@@ -13,9 +15,10 @@ export class GencountDetailComponent {
   gencountService = inject(GencountService);
   gencount = signal<Gencount|null>(null);
   users=signal<User[]|null>(null)
+  activatedRoute = inject(ActivatedRoute)
   // gencount = input.required<Gencount>();
   constructor(private router: Router) {
-    let gencountId = router.currentNavigation()?.extras.state?.['gencountId'] as number;
+    let gencountId = this.activatedRoute.snapshot.params['id'] as number;
     this.gencountService.getGencountById(gencountId).subscribe({
       next: (gencount) => {
         this.gencount.set(gencount);
@@ -34,5 +37,7 @@ export class GencountDetailComponent {
     this.router.navigate(['/gencounts']);
   }
 
+
   protected readonly Undo2 = Undo2;
+  protected readonly parseInt = parseInt;
 }

@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {gencountURL} from '../REST-Urls';
+import {expensesURL, gencountURL} from '../REST-Urls';
 import {Observable} from 'rxjs';
 import {Expense} from '../../interfaces';
 
@@ -13,6 +13,6 @@ export class ExpensesService {
     return this.http.get<Expense[]>(gencountURL + `/${gencountId}/expenses`);
   }
   createExpense(expense : Expense){
-    return this.http.post<Expense>(gencountURL + `/${expense.gencountId}/expenses`, expense);
+    return this.http.post<Expense>(expensesURL, expense);
   }
 }

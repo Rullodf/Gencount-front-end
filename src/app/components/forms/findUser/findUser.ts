@@ -1,10 +1,10 @@
 import {Component, input, output, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../../services/user.service';
 import {FormsModule} from '@angular/forms';
-import {GencountService} from '../../services/gencount.service';
+import {GencountService} from '../../../services/gencount.service';
 import {use} from 'chai';
-import {User} from '../../../interfaces';
+import {User} from '../../../../interfaces';
 
 @Component({
   selector: 'find-user',
@@ -12,7 +12,7 @@ import {User} from '../../../interfaces';
     <div>
       <form #form="ngForm" class="form" (ngSubmit)="handleSubmit()">
         <div class="friend-list">
-          @for (user of friends(); track $index) {
+          @for (user of listOfPeople(); track $index) {
             <label [for]="user.userId" class="friend-container">
               <div class="info">
                 {{ user.name }}
@@ -39,25 +39,14 @@ import {User} from '../../../interfaces';
   imports: [CommonModule, FormsModule],
 })
 export class UserList {
-  friends = signal<User[]>([]);
   checkboxClicked = output<HTMLInputElement>();
   //TODO: metterli required dopo
   isAdding = input<boolean | null>(null);
   gencountId = input(-1);
+  listOfPeople = input.required<User[]>();
 
   constructor(private userService: UserService, private gencountService: GencountService) {
-    this.userService.getFriends().subscribe({
-      next: (data) => {
-        this.friends.set(data.sort((a, b) => a.surname.toLowerCase().localeCompare(b.surname.toLowerCase()))
-          .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
-        setTimeout(() => {
-          console.log(this.friends);
-        }, 8000);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+
   }
 
 

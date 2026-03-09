@@ -1,0 +1,142 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--mat-sys-surface);
+}
+
+.card {
+  border: 1px solid var(--mat-sys-outline-variant);
+  width: min(520px, 92vw);
+  padding: 34px 36px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  background-color: var(--mat-sys-surface-container);
+}
+.card.dark{
+  border: none
+}
+
+.space {
+  margin: 0 auto;
+  padding: 0;
+  height: 1px;
+}
+
+.separator {
+  margin: 0 auto;
+  height: 1px;
+  background-color: var(--mat-sys-outline-variant);
+  width: 98%;
+}
+
+.birthdate-and-gender {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+  font-family: Arial, serif;
+
+}
+
+.important {
+  font-weight: 700;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.create {
+  margin-top: 14px;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.open-list {
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: border 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.birthdate {
+  width: 70%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.select {
+  border: none;
+  height: 36px;
+  background-color: var(--mat-sys-surface-bright);
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.day {
+  width: calc(30% - 5px);
+}
+
+.month {
+  width: calc(30% - 10px);
+}
+
+.year {
+  width: calc(40% - 5px);
+}
+
+.select:hover,
+.select:active {
+  background-color: var(--mat-sys-secondary-container);
+}
+
+
+.button{
+background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  width: 70%;
+  height: 50px;
+  border-radius: 99999px;
+  border: none;
+  margin: 30px auto 0
+}
+
+.gender{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.radio{
+  width: 25px;
+  height: 25px;
+}
+
+.radio-label{
+  display: flex;
+  align-items: center;
+}
+

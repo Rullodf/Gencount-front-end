@@ -1,0 +1,48 @@
+<div class="page">
+  <div class="card" [class.dark]="themeService.isDark()">
+    <form class="form" #productForm="ngForm" (ngSubmit)="registerUser()">
+      <input class="input" type="text" name="email" id="email" placeholder="Email" [(ngModel)]="email"/>
+      <input class="input" type="password" name="password" id="password" placeholder="Password" [(ngModel)]="password"/>
+      <span class="space"> </span>
+      <span class="separator">
+      </span>
+      <span class="space"> </span>
+      <input class="input" type="text" name="nome" id="nome" placeholder="Nome" [(ngModel)]="name"/>
+      <input class="input" type="text" name="cognome" id="cognome" placeholder="Cognome" [(ngModel)]="surname"/>
+      <input class="input" type="text" name="phone" id="phone" placeholder="Telefono" [(ngModel)]="phone"/>
+      <div class="birthdate-and-gender">
+        <div class="birthdate">
+          <select class="select day" [(ngModel)]="birthday" name="birthday">
+            <option value="" disabled hidden selected>DD</option>
+            @for (day of days; track day) {
+                <option [value]="day">{{ day }}</option>
+            }
+          </select>
+          <select class="select month" [(ngModel)]="birthmonth" name="birthmonth" (ngModelChange)="updateDays()">
+            <option value="" disabled hidden selected>MM</option>
+            @for (month of months; track month) {
+              <option [value]="month">{{ month }}</option>
+            }
+          </select>
+          <select class="select year" [(ngModel)]="birthyear" name="birthyear" (ngModelChange)="updateDays()">
+            <option value="" disabled hidden selected>YYYY</option>
+            @for (year of years; track year) {
+              <option [value]="year">{{ year }}</option>
+            }
+          </select>
+        </div>
+        <div class="gender">
+          <label for="male" class="radio-label">
+            <input class="radio" type="radio" name="gender" id="male" value="m" [(ngModel)]="gender"/> M
+          </label>
+          <label for="female" class="radio-label">
+            <input class="radio" type="radio" name="gender" id="female" value="f" [(ngModel)]="gender"/> F
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="button">
+        Sign up
+      </button>
+    </form>
+  </div>
+</div>

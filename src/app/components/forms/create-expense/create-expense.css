@@ -27,12 +27,6 @@
   gap: 10px;
 }
 
-.label {
-  margin-top: 10px;
-  font-weight: 600;
-  font-family: Arial, serif;
-}
-
 .input {
   width: 100%;
   padding: 12px 14px;

@@ -1,15 +1,15 @@
 <div class="login-screen">
   <button class="change-theme" (click)="themeService.toggleTheme()"><lucide-icon [img]="Sun"></lucide-icon> </button>
   <div class="presentation surface">
-    <img src="imgs/logo.png" class="logo" alt="Logo del sito">
+    <img [src]="themeService.isDark() ? 'imgs/logo_scuro.png' : 'imgs/logo.png'" class="logo" alt="Logo del sito">
     <img src="imgs/presentation-pic.png" class="presentation-pic" alt="Foto di presentazione">
   </div>
   <div class="user-box">
     <div class="catch-phrase ">Tutte le spese<br>in un solo posto</div>
     <div class="form-container">
       <form #productForm="ngForm" (ngSubmit)=login()>
-          <input type="text" class="inputField surface-bright on-surface" placeholder="Email" [(ngModel)]="email" name="email">
-          <input type="password" class="inputField surface-bright on-surface" placeholder="Password" [(ngModel)]="password"
+          <input type="text" class="inputField" placeholder="Email" [(ngModel)]="email" name="email">
+          <input type="password" class="inputField" placeholder="Password" [(ngModel)]="password"
                  name="password">
           <login-button class="button"/>
           <a class="password-forgotten" href="">Password dimenticata?</a>

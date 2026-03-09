@@ -22,6 +22,7 @@ type GencountCard = {
 export class GencountListComponent {
   gencounts = signal<Gencount[]>([]);
   theme = inject(ThemeService)
+  themeService = inject(ThemeService);
 
   constructor(
     private router: Router,

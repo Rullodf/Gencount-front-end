@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {RegisterForm} from '../forms/registerForm';
+import {RegistrationForm} from '../../components/forms/registration-form/registration-form';
 
 @Component({
   selector: 'registration-screen',
-  imports: [RegisterForm],
+  imports: [RegistrationForm],
   template: `
     <div>
       <register-form/>
@@ -11,4 +11,4 @@ import {RegisterForm} from '../forms/registerForm';
   `,
   styles: ``
 })
-export class RegistrationScreen {}
+export class Registration {}

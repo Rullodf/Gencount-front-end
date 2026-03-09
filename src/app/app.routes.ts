@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {Hero} from './pages/hero/hero';
-import {RegistrationScreen} from './components/mainScreens/registrationScreen';
+import {Registration} from './pages/registration/registration';
 import { GencountListComponent } from './pages/gencount-list/gencountList';
 
 
@@ -10,7 +10,7 @@ import {GencountDetailComponent} from './pages/gencount-detail/gencount-detail';
 import {CreateExpense} from './components/forms/create-expense/create-expense';
 export const routes: Routes = [
   {path: '', component: Hero},
-  {path: 'register-user', component: RegistrationScreen},
+  {path: 'register-user', component: Registration},
   {path: 'gencounts', component: GencountListComponent },
   {path:'friends', component: UserList},
   {path:'expense-create', component: CreateExpense},

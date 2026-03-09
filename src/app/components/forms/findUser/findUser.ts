@@ -52,9 +52,9 @@ export class UserList {
 
   handleSubmit() {
     if (this.isAdding()) {
-      this.gencountService.addUsers(this.friends().map(u => u.userId), this.gencountId()).subscribe({})
+      this.gencountService.addUsers(this.listOfPeople().map(u => u.userId), this.gencountId()).subscribe({})
     } else {
-      this.gencountService.removeUsers(this.friends().map(u=>u.userId), this.gencountId()).subscribe({})
+      this.gencountService.removeUsers(this.listOfPeople().map(u=>u.userId), this.gencountId()).subscribe({})
     }
   }
 

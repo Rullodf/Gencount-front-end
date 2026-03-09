@@ -1,0 +1,19 @@
+<form #expenseForm="ngForm" (ngSubmit)="submit()" class="form">
+  <div class="nome-e-prezzo">
+    <label class="label">Nome spesa</label>
+
+
+    <input class="input" type="text" [(ngModel)]="title" name="title" placeholder="Es. Viaggio a Cosenza"/>
+    <label class="label"></label>
+    <input class="input" type="text" [(ngModel)]="price" name="price" placeholder="50 €"/>
+  </div>
+
+  <label class="label">Descrizione</label>
+  <textarea name="description" [(ngModel)]="description"
+            placeholder="Es. spese weekend, cibo, benzina...">
+        </textarea>
+
+  <!-- TODO: mettere la disattivazione dopo click-->
+  <button type="submit" class="btn create" >Crea Gencount</button>
+
+</form>

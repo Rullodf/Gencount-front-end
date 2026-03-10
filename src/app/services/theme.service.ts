@@ -10,17 +10,23 @@ export class ThemeService {
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.body = this.document.body;
-    this.loadTheme('dark')
+    if(localStorage.getItem('theme') === 'dark'){
+      this.loadTheme('dark');
+    } else{
+      this.loadTheme('light');
+    }
     this.body.classList.add('medium-contrast');
   }
 
   loadTheme(theme: 'light' | 'dark') {
     if (theme === 'dark') {
       this.body.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
       this.isDarkMode = true;
     }
     else {
       this.body.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
       this.isDarkMode = false;
     }
   }
